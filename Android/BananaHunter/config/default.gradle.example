@@ -1,0 +1,6 @@
+ext {
+    storeFile     = "${System.env.HOME}/.android/debug.keystore"
+    storePassword = "password"
+    keyAlias      = "alias"
+    keyPassword   = "password"
+}

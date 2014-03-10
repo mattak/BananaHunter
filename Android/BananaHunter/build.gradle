@@ -1,0 +1,67 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.8.+'
+        classpath 'com.deploygate:gradle:0.5'
+    }
+}
+
+apply plugin: 'android'
+apply plugin: 'deploygate'
+apply from: 'config/default.gradle'
+
+// configure
+// -----------------------------------------
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile files('libs/unity-classes.jar')
+}
+
+android {
+    defaultConfig{
+        compileSdkVersion 19
+        buildToolsVersion "19.0.3"
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs      = ['src']
+            res.srcDirs       = ['res']
+            assets.srcDirs    = ['assets']
+            resources.srcDirs = ['src']
+        }
+    }
+
+    signingConfigs {
+        releaseConfig {
+            storeFile     file(project.ext.storeFile)
+            storePassword project.ext.storePassword
+            keyAlias      project.ext.keyAlias
+            keyPassword   project.ext.keyPassword
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            jniDebugBuild true
+        }
+        release {
+            signingConfig signingConfigs.releaseConfig
+        }
+    }
+}
+
+// tasks
+// -----------------------------------------
+
+tasks.withType(Compile) {
+    options.encoding = 'UTF-8'
+}
