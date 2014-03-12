@@ -57,6 +57,13 @@ android {
             signingConfig signingConfigs.releaseConfig
         }
     }
+
+    lintOptions {
+      // checkReleaseBuilds false
+      // Or, if you prefer, you can continue to check for errors in release builds,
+      // but continue the build even when errors are found:
+      abortOnError false
+    }
 }
 
 // tasks
@@ -66,10 +73,7 @@ tasks.withType(Compile) {
     options.encoding = 'UTF-8'
 }
 
-
-
 tasks.withType(com.android.build.gradle.tasks.PackageApplication) { pkgTask ->
     pkgTask.jniFolders = new HashSet<File>()
     pkgTask.jniFolders.add(new File(projectDir, 'libs'))
 }
-

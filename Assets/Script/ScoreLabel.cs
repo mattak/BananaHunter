@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ScoreLabel : MonoBehaviour {
 	public UILabel label;
-	public string prefix;
+	public string format;
 
 	// Use this for initialization
 	void Start () {
@@ -12,6 +12,6 @@ public class ScoreLabel : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		label.text = prefix + ScoreManager.Instance.Get();
+		label.text = string.Format(format, ScoreManager.Instance.Get());
 	}
 }
