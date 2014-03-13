@@ -1,6 +1,0 @@
-config/default.gradle
-build/
-bin/
-gen/
-.gradle/
-.idea/
