@@ -1,0 +1,11 @@
+{
+  "name": "banana-hunter",
+  "version": "0.0.1",
+  "description": "The site for Banana Hunter app.",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "assemble": "~0.4.17",
+    "grunt-contrib-watch": "~0.5.3"
+  }
+}
