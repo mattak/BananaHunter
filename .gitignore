@@ -36,3 +36,8 @@ build/
 /*.userprefs
 /*.pidb
 /*.booproj
+
+# site
+
+dist/
+node_modules/
